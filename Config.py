@@ -16,10 +16,10 @@ class Config:
         
         fileName = "config.cfg"
 
-        generalDict = {'Path' : '/mnt/1-wire/honeywell/',
-                       'VAC'  : 'VAD',
-                       'VDD'  : 'VDD',
-                       'T'    : 'temperature'
+        generalDict = {'vac_file'  : 'VAD',
+                       'vdd_file'  : 'VDD',
+                       't_file'    : 'temperature',
+                       'path' : '/mnt/1-wire/honeywell/'
                        }
         with open(fileName,'w') as cfgFile:
             self.__prs.add_section('General')

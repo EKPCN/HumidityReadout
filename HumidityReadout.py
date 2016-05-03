@@ -11,17 +11,17 @@ class Humidity:
         self.__path = self.__params['path']
 
     def getTemperature(self):
-        tempFilePath = self.__path + self.__params['t']
+        tempFilePath = self.__path + self.__params['t_file']
         with open(tempFilePath,'r') as tempFile:
             return float(tempFile.read().strip())
 
     def getVdd(self):
-        vddFilePath = self.__path + self.__params['vdd']
+        vddFilePath = self.__path + self.__params['vdd_file']
         with open(vddFilePath, 'r') as vddFile:
             return float(vddFile.read().strip())
         
     def getVac(self):
-        vacFilePath = self.__path + self.__params['vac']
+        vacFilePath = self.__path + self.__params['vac_file']
         with open(vacFilePath, 'r') as vacFile:
             return float(vacFile.read().strip())
 
