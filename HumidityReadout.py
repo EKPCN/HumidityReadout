@@ -25,14 +25,11 @@ class Humidity:
         with open(vacFilePath, 'r') as vacFile:
             return float(vacFile.read().strip())
 
-    def getHumidity(self, perc=False, res=4):
+    def getHumidity(self, res=2):
         
-        rh = float((self.getVac()/self.getVdd() - 0.16) / (0.062*(1.0546 - 0.00216*self.getTemperature())))
+        rh = float((self.getVac()/self.getVdd() - 0.16) / (0.0062*(1.0546 - 0.00216*self.getTemperature())))
         
-        if perc:
-            return(round(rh*100,res))
-        else:
-            return(round(rh,res))
+        return(round(rh,res))
          
 
 if __name__ == '__main__':
@@ -42,5 +39,5 @@ if __name__ == '__main__':
     print "Temperature:\t %s°C" % h.getTemperature()
     print "Vdd:\t\t %s V" % h.getVdd()
     print "Vac:\t\t %s V" % h.getVac()
-    print "Humidity:\t %s" % h.getHumidity()
-    print "Humidity: \t %s%%" % h.getHumidity(perc=True,res=2)
+    print "Humidity:\t %s%%" % h.getHumidity()
+
